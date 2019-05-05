@@ -73,13 +73,19 @@ function vanila_themedd_edd_price($download_id)
 }
 
 function vanila_themedd_edd_content($download_id)
-{
+{  
     echo '<ul class="details_highlighted"><li>✨ Premium Logos <b>Sold Once</b></li><li>🤝 Fair <b>Money Back</b> Gurantee</li><li><b>👌 Manually approved</b> by our staff</li></ul>';
+    
     echo the_content();
 
     $categories = themedd_edd_download_categories($download_id);
     if ($categories) :
-        echo '<li class="downloadDetails-categories"><span class="downloadDetails-name">'._e('Categories:', 'themedd').'</span><span class="downloadDetails-value">'.$categories.'</span></li>';
+        echo '<li class="vanila-downloadDetails-categories"><span class="downloadDetails-name">'._e('Categories:', 'themedd').'</span><span class="downloadDetails-value">'.$categories.'</span></li>';
+    endif;
+
+    $tags = themedd_edd_download_tags($download_id);
+    if ( $tags ) : 
+        echo '<li class="vanila-downloadDetails-tags"><span class="downloadDetails-name">'._e( 'Tags:', 'themedd' ).'</span><span class="downloadDetails-value">'.$tags.'</span></li>';
     endif;
 }
 
