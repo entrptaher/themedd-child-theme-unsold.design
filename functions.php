@@ -73,6 +73,10 @@ function vanila_themedd_edd_price($download_id)
 
 function vanila_themedd_edd_content($download_id)
 {  
+    # Random quotes
+    quotescollection_quote( array( 'ajax_refresh' => false, 'char_limit' => 300 ) );
+
+    # big highlighted text box
     echo '<ul class="details_highlighted"><li>✨ Premium Logos <b>Sold Once</b></li><li>🤝 Fair <b>Money Back</b> Gurantee</li><li><b>👌 Manually approved</b> by our staff</li></ul>';
     
     echo the_content();
