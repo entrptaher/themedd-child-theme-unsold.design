@@ -44,7 +44,7 @@ function vanila_edd_favorites_link()
     //remove_action( 'edd_purchase_link_top', 'edd_wl_load_wish_list_link' );
 
     // add our new link
-    // add_action('edd_purchase_link_end', 'edd_favorites_load_link');
+    add_action('edd_purchase_link_end', 'edd_favorites_load_link');
 }
 add_action('template_redirect', 'vanila_edd_favorites_link');
 
@@ -98,4 +98,4 @@ function my_theme_shift_navigation()
     add_action('themedd_edd_download_info', 'themedd_edd_purchase_link', 10, 1);
 }
 
-add_action('template_redirect', 'my_theme_shift_navigation');
+// add_action('template_redirect', 'my_theme_shift_navigation');
