@@ -11,6 +11,265 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: themedd-child
 */
 
-/**
- * Add your custom CSS styling below.
-*/
+/* product page */
+
+#edd_product_details-3 h3 {
+  font-size: 36px;
+  color: #000000;
+}
+
+#edd_product_details-3 span {
+  color: #101010 !important;
+  font-size: 20px !important;
+  font-weight: normal !important;
+}
+
+#edd_product_details-3 span span {
+  font-weight: bold !important;
+}
+
+#edd_product_details-3 ul {
+  background: #f5f7f9;
+  padding: 12px 25px;
+}
+
+#edd_product_details-3 ul li {
+  color: #101010;
+  font-size: 16px;
+}
+
+#edd_product_details-3 p {
+  color: #585858;
+  font-size: 15px;
+}
+
+#edd_product_details-3 .edd-wl-button {
+  padding: 8px;
+}
+
+#edd_product_details-3 .edd-wl-button span {
+  color: #201C1C;
+  opacity: 0.53;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+#edd_product_details-3 .edd-wl-button i {
+  color: #E3E3E1;
+  font-size: 16px;
+
+}
+
+#edd_product_details-3 form .edd-add-to-cart,
+#edd_product_details-3 .edd-free-download {
+  background: #27D288;
+  border-color: #27D288;
+  width: 200px;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 10px;
+  -webkit-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.22);
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.22);
+  color: #fff;
+}
+
+#edd_product_details-3 form .edd-add-to-cart span.edd-add-to-cart-label {
+  color: #fff !important;
+  font-size: 24px !important;
+  font-weight: bold !important;
+}
+
+#themedd_download_details-3 h2 {
+  font-size: 25px;
+  color: #000;
+  font-weight: normal;
+}
+
+#themedd_download_details-2 .downloadAuthor-value,
+#themedd_download_details-3 .downloadDetails-value {
+  line-height: initial !important;
+}
+
+#themedd_download_details-3 .downloadDetails-name {
+  width: auto;
+  margin-right: 10px;
+}
+
+#themedd_download_details-3 .downloadDetails-categories .downloadDetails-name,
+#themedd_download_details-3 .downloadDetails-tags .downloadDetails-name {
+  color: #585858;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: initial;
+}
+
+#themedd_download_details-3 .downloadDetails-categories .downloadDetails-value a,
+#themedd_download_details-3 .downloadDetails-tags .downloadDetails-value a {
+  font-weight: normal;
+  line-height: initial;
+  font-size: 14px;
+  color: #585858;
+  text-decoration: underline;
+}
+
+#themedd_download_author-3 .downloadAuthor-author .downloadAuthor-name {
+  display: none
+}
+
+#themedd_download_author-3 .downloadAuthor-avatar img {
+  border-radius: 50%;
+  width: 63px;
+  height: 63px;
+}
+
+#themedd_download_author-3 .downloadAuthor-avatar {
+  float: left;
+  margin-right: 20px;
+}
+
+#themedd_download_author-3 .downloadAuthor-author .downloadAuthor-value a {
+  color: #000;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+#themedd_download_author-3 .downloadAuthor-authorSignupDate .downloadAuthor-name {
+  font-size: 12px;
+  color: #070707;
+  opacity: 0.53;
+  width: auto;
+  margin-right: 5px;
+  line-height: initial;
+}
+
+#themedd_download_author-3 .downloadAuthor-authorSignupDate .downloadAuthor-value {
+  font-size: 12px;
+  color: #070707;
+  opacity: 0.53;
+}
+
+#themedd_download_author-3 .downloadAuthor ul,
+#themedd_download_author-3 .downloadDetails ul {
+  margin-top: 0;
+}
+
+#main article .post-thumbnail img {
+  width: 80%;
+  max-width: 80%;
+}
+
+#themedd_download_details-3 .downloadDetails-datePublished {
+  display: none;
+}
+
+/* homepage */
+
+.edd_download_title a {
+  color: #101010;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.edd_price {
+  color: #101010;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.eddDownloadMeta-authorAvatar {
+  display: none;
+}
+
+.eddDownloadMeta-authorName {
+  color: #585858;
+  font-size: 14px;
+  margin-left: 0 !important;
+}
+
+.edd_purchase_submit_wrapper .edd-add-to-cart,
+.edd-free-download {
+  background: #27D288;
+  border-color: #27D288;
+  font-weight: bold;
+  display: block;
+  float: left;
+  padding: 5px 15px;
+
+}
+
+.edd_purchase_submit_wrapper .edd-add-to-cart:hover,
+.edd-free-download:hover {
+  background: #23c17d;
+  border-color: #23c17d;
+}
+
+a.edd-wl-action .glyphicon {
+  color: #D2D2D0;
+}
+
+a.edd-wl-action.favorited .glyphicon {
+  color: #D94D4D;
+}
+
+a.edd-wl-action {
+  float: left;
+  margin-top: 0 !important;
+  padding: 0.73rem 1.5rem;
+  font-size: 1.1rem;
+  border: 1px solid #959593;
+  border-radius: 0;
+  margin-left: 10px;
+  color: #959593;
+  padding: 5px 15px;
+
+}
+
+@media only screen and (max-width: 768px) {
+  .edd_downloads_list.edd_download_columns_3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .edd-wl-button .label {
+    display: none;
+  }
+
+  .edd_download_excerpt {
+    display: none;
+  }
+
+  .edd_purchase_submit_wrapper .edd-add-to-cart,
+  .edd-free-download {
+    padding: 5px 13px !important;
+  }
+
+  a.edd-wl-action {
+    padding: 5px 13px;
+  }
+
+  #edd_product_details-3 h3,
+  .edd_download_title,
+  .edd_download_title a {
+    font-size: 19px !important;
+    font-weight: normal !important;
+  }
+
+  .edd_price {
+    font-size: 14px;
+    margin-bottom: 0;
+
+  }
+
+  .edd_purchase_submit_wrapper .edd-add-to-cart,
+  .edd-free-download {
+    font-size: 12px;
+  }
+
+  .edd_download_buy_button,
+  .eddDownloadMeta-beforeTitle .eddDownloadMeta,
+  .eddDownloadMeta-afterTitle .eddDownloadMeta,
+  .edd_download_purchase_form {
+    margin-top: 0;
+  }
+}

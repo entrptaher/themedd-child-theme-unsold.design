@@ -76,6 +76,11 @@ function vanila_themedd_edd_content($download_id)
 {
     echo '<ul class="details_highlighted"><li>✨ Premium Logos <b>Sold Once</b></li><li>🤝 Fair <b>Money Back</b> Gurantee</li><li><b>👌 Manually approved</b> by our staff</li></ul>';
     echo the_content();
+
+    $categories = themedd_edd_download_categories($post->ID);
+    if ($categories) :
+        echo '<li class="downloadDetails-categories"><span class="downloadDetails-name">'._e('Categories:', 'themedd').'</span><span class="downloadDetails-value">'.$categories.'</span></li>';
+    endif;
 }
 
 function my_theme_shift_navigation()
