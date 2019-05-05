@@ -273,3 +273,13 @@ a.edd-wl-action {
     margin-top: 0;
   }
 }
+
+/* Quotes Collection */
+
+.quotescollection-quote-wrapper p:before {
+  content: '\201C';
+}
+
+.quotescollection-quote-wrapper p:after {
+  content: '\201D';
+}
