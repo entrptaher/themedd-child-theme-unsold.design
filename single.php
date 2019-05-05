@@ -4,6 +4,10 @@
  */
 
 get_header();
+
+    # Random quotes
+    quotescollection_quote( array( 'ajax_refresh' => false, 'char_limit' => 300 ) );
+
 ?>
 
 <?php do_action( 'themedd_single_start' ); ?>
