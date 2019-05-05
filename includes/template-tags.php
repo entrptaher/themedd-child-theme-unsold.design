@@ -58,8 +58,10 @@ if ( ! function_exists( 'vanila_themedd_page_header' ) ) :
 					<?php elseif ( $args['title'] ) : ?>
             <b>Premium </b><?php echo $args['title']; ?> <b>for Sale</b>
 					<?php endif; ?>
-          <?php echo quotescollection_quote( array( 'ajax_refresh' => false, 'char_limit' => 300 ) ); ?>
 				</h1>
+				
+        <?php quotescollection_quote( array( 'ajax_refresh' => false, 'char_limit' => 300 ) ); ?>
+
 				<?php do_action( 'themedd_page_header_wrapper_end' ); ?>
 			</div>
 			<?php do_action( 'themedd_page_header_end' ); ?>
