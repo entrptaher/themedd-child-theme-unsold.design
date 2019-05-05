@@ -61,11 +61,11 @@ function vanila_themedd_edd_price($download_id)
     }
     
     if (edd_is_free_download($download_id)) {
-        $price = '<span id="edd_price_' . get_the_ID() . '" class="edd_price">This logo is 100% unique and can be yours for ' . __('Free', 'themedd') . '</span>';
+        $price = '<span id="edd_price_' . get_the_ID() . '" class="edd_price">This logo is 100% unique and can be yours for <b>' . __('Free', 'themedd') . '</b></span>';
     } elseif (edd_has_variable_prices($download_id)) {
-        $price = '<span id="edd_price_' . get_the_ID() . '" class="edd_price">This logo is 100% unique and can be yours for ' . __('From', 'themedd') . '&nbsp;' . edd_currency_filter(edd_format_amount(edd_get_lowest_price_option($download_id))) . '</span>';
+        $price = '<span id="edd_price_' . get_the_ID() . '" class="edd_price">This logo is 100% unique and can be yours for <b>' . __('From', 'themedd') . '&nbsp;' . edd_currency_filter(edd_format_amount(edd_get_lowest_price_option($download_id))) . '</b></span>';
     } else {
-        $price = '<span>This logo is 100% unique and can be yours for  '.edd_price($download_id, false).'</span>';
+        $price = '<span class="edd_price">This logo is 100% unique and can be yours for  <b>'.edd_price($download_id, false).'</b></span>';
     }
 
     echo $price;
