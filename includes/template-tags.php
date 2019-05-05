@@ -51,6 +51,15 @@ if ( ! function_exists( 'vanila_themedd_page_header' ) ) :
 			<?php do_action( 'themedd_page_header_start' ); ?>
 			<div class="wrapper">
 				<?php do_action( 'themedd_page_header_wrapper_start' ); ?>
+				<h1 class="<?php echo get_post_type(); ?>-title">
+					<?php if ( $args['subtitle'] ) : ?>
+						<span class="entry-title-primary"><b>Premium </b><?php echo $args['title']; ?> <b>for Sale</b></span>
+						<span class="subtitle"><?php echo $args['subtitle']; ?></span>
+					<?php elseif ( $args['title'] ) : ?>
+            <b>Premium </b><?php echo $args['title']; ?> <b>for Sale</b>
+					<?php endif; ?>
+          <?php echo quotescollection_quote( array( 'ajax_refresh' => false, 'char_limit' => 300 ) ); ?>
+				</h1>
 				<?php do_action( 'themedd_page_header_wrapper_end' ); ?>
 			</div>
 			<?php do_action( 'themedd_page_header_end' ); ?>
