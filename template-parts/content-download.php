@@ -7,7 +7,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-    <?php do_action( 'themedd_entry_article_start' ); ?>
+    <?php quotescollection_quote( array( 'ajax_refresh' => false, 'char_limit' => 300 ) ); ?>
+
+	<?php do_action( 'themedd_entry_article_start' ); ?>
 
     <?php themedd_post_thumbnail(); ?>
 
