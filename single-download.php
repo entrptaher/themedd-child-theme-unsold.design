@@ -4,7 +4,9 @@
  */
 
 get_header();
-themedd_page_header();
+
+include( dirname( __FILE__ ) . '/includes/template-tags.php' );
+vanila_themedd_page_header();
 ?>
 
 <div class="content-wrapper<?php echo themedd_wrapper_classes(); ?>">
