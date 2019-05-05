@@ -73,7 +73,7 @@ function vanila_themedd_edd_price($download_id)
 
 function vanila_themedd_edd_title($download_id){
     # Hard coded title
-    echo the_title( '<h3 class="vanila-downloadDetails-title">Buy<b>', '</b></h3>' ); 
+    echo the_title( '<h3 class="vanila-downloadDetails-title">Buy <b> ', '</b></h3>' ); 
 }
 
 function vanila_themedd_edd_content($download_id){   
