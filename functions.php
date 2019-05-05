@@ -85,7 +85,8 @@ function vanila_themedd_edd_content($download_id)
     
     echo '<b>Files included:</b> <span class="file-formats">AI, PNG, PDF, SVG</span>';
 
-    echo '<b>Description:</b>';
+    echo '<b class="description-prefix">Description:</b>';
+
     echo the_content();
 
     $categories = themedd_edd_download_categories($download_id);
