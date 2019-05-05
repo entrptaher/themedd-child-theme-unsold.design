@@ -83,7 +83,7 @@ function vanila_themedd_edd_content($download_id)
     # big highlighted text box
     echo '<ul class="details_highlighted"><li>✨ Premium Logos <b>Sold Once</b></li><li>🤝 Fair <b>Money Back</b> Gurantee</li><li><b>👌 Manually approved</b> by our staff</li></ul>';
     
-    echo '<b>Files included:</b> <span class="file-formats">AI, PNG, PDF, SVG</span>';
+    echo '<p class="file-formats"><b>Files included:</b> <span>AI, PNG, PDF, SVG</span></p>';
 
     echo '<b class="description-prefix">Description:</b>';
 
