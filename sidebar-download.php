@@ -33,7 +33,7 @@ $download_options = themedd_edd_download_details_options();
 			 * Widget title.
 			 */
 			if ( ! empty( $download_options['title'] ) ) : ?>
-			<h2 class="widget-title">Buy <b><?php echo $download_options['title']; ?></b></h2>
+			<h2 class="widget-title"><?php echo $download_options['title']; ?></h2>
 			<?php endif; ?>
 
 			<ul>

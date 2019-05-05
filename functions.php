@@ -72,7 +72,10 @@ function vanila_themedd_edd_price($download_id)
 }
 
 function vanila_themedd_edd_content($download_id)
-{  
+{   
+    # Hard coded title
+    echo the_title( '<h3 class="vanila-downloadDetails-title">Buy<b>', '</b></h3>' ); 
+
     # big highlighted text box
     echo '<ul class="details_highlighted"><li>✨ Premium Logos <b>Sold Once</b></li><li>🤝 Fair <b>Money Back</b> Gurantee</li><li><b>👌 Manually approved</b> by our staff</li></ul>';
     
