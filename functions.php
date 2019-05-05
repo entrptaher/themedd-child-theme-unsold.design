@@ -71,17 +71,21 @@ function vanila_themedd_edd_price($download_id)
     echo $price;
 }
 
-function vanila_themedd_edd_title($download_id){
+function vanila_themedd_edd_title($download_id)
+{
     # Hard coded title
-    the_title( '<h3 class="vanila-downloadDetails-title">Buy <b>', '</b></h3>' ); 
+    the_title('<h3 class="vanila-downloadDetails-title">Buy <b>', '</b></h3>');
 }
 
-function vanila_themedd_edd_content($download_id){   
+function vanila_themedd_edd_content($download_id)
+{
     
     # big highlighted text box
     echo '<ul class="details_highlighted"><li>✨ Premium Logos <b>Sold Once</b></li><li>🤝 Fair <b>Money Back</b> Gurantee</li><li><b>👌 Manually approved</b> by our staff</li></ul>';
     
-    echo the_content();
+    echo '<b>Files included:</b> <span class="file-formats">AI, PNG, PDF, SVG</span>';
+
+    echo '<b>Description:</b>'.the_content();
 
     $categories = themedd_edd_download_categories($download_id);
     if ($categories) :
@@ -89,8 +93,8 @@ function vanila_themedd_edd_content($download_id){
     endif;
 
     $tags = themedd_edd_download_tags($download_id);
-    if ( $tags ) : 
-        echo '<li class="vanila-downloadDetails-tags"><span class="downloadDetails-name">'._e( 'Tags:', 'themedd' ).'</span><span class="downloadDetails-value">'.$tags.'</span></li>';
+    if ($tags) :
+        echo '<li class="vanila-downloadDetails-tags"><span class="downloadDetails-name">'._e('Tags:', 'themedd').'</span><span class="downloadDetails-value">'.$tags.'</span></li>';
     endif;
 }
 
