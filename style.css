@@ -26,7 +26,8 @@ body{
 }
 
 .subtitle{
-  font-weight:300;
+  font-weight:300!important;
+  font-family: 'Roboto', sans-serif;
 }
 
 #edd_product_details-3 span {
