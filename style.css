@@ -327,6 +327,10 @@ a.edd-wl-action {
 
 
 @media only screen and (max-width: 768px) {
+
+  h1.download-title{
+    font-size:24px;
+}
   .edd_downloads_list.edd_download_columns_3 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -354,9 +358,6 @@ a.edd-wl-action {
     font-weight: normal !important;
   }
 
-  h1.download-title{
-    font-size:24px;
-}
 .page-header .quotescollection-quote-wrapper p, .page-header .quotescollection-quote-wrapper .attribution{
 	 font-size:16px
 }
