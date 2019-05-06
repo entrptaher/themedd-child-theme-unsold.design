@@ -136,6 +136,7 @@ $download_options = themedd_edd_download_details_options();
 		if ( themedd_edd_show_download_author() ) : ?>
 
 		<section class="widget downloadAuthor">
+		<span class="vanila-line-divider"></span>
 
 			<?php
 			/**
