@@ -91,12 +91,12 @@ function vanila_themedd_edd_content($download_id)
 
     $categories = themedd_edd_download_categories($download_id);
     if ($categories) :
-        echo '<li class="vanila-downloadDetails-categories"><span class="downloadDetails-name">'._e('Categories:', 'themedd').'</span><span class="downloadDetails-value">'.$categories.'</span></li>';
+        echo '<li class="vanila-downloadDetails-categories"><span class="downloadDetails-name downloadDetails-label">Categories:</span><span class="downloadDetails-value">'.$categories.'</span></li>';
     endif;
 
     $tags = themedd_edd_download_tags($download_id);
     if ($tags) :
-        echo '<li class="vanila-downloadDetails-tags"><span class="downloadDetails-name">'._e('Tags:', 'themedd').'</span><span class="downloadDetails-value">'.$tags.'</span></li>';
+        echo '<li class="vanila-downloadDetails-tags"><span class="downloadDetails-name downloadDetails-label">Tags:</span><span class="downloadDetails-value">'.$tags.'</span></li>';
     endif;
 }
 

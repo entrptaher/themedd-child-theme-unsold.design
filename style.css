@@ -14,37 +14,41 @@ Text Domain: themedd-child
 /* product page */
 
 #edd_product_details-3 h3 {
-  font-size: 36px;
-  color: #000000;
+  font-size: 28px;
+  color: #2A3A47;
+  margin-bottom:20px;
 }
 
 #edd_product_details-3 span {
-  color: #101010 !important;
-  font-size: 20px !important;
+  color: #2A3A47!important;
+  font-size: 23px !important;
   font-weight: normal !important;
+  line-height: initial!important;
 }
 
 #edd_product_details-3 span span {
   font-weight: bold !important;
+  margin-top: 15px;
 }
 
 #edd_product_details-3 ul {
   background: #f5f7f9;
-  padding: 12px 25px;
+  padding: 8px;
 }
 
 #edd_product_details-3 ul li {
-  color: #101010;
+  color: #2A3A47;
   font-size: 16px;
 }
 
 #edd_product_details-3 p {
   color: #585858;
   font-size: 15px;
+  margin-bottom:5px!important;
 }
 
 #edd_product_details-3 .edd-wl-button {
-  padding: 8px;
+  padding: 10px;
 }
 
 #edd_product_details-3 .edd-wl-button span {
@@ -112,6 +116,13 @@ Text Domain: themedd-child
   color: #585858;
   text-decoration: underline;
 }
+#primary-sidebar .widget{
+    padding-bottom:0;
+}
+#themedd_download_author-3{
+  margin-top:28px;
+    padding-top:0!important;
+}
 
 #themedd_download_author-3 .downloadAuthor-author .downloadAuthor-name {
   display: none
@@ -125,7 +136,7 @@ Text Domain: themedd-child
 
 #themedd_download_author-3 .downloadAuthor-avatar {
   float: left;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 #themedd_download_author-3 .downloadAuthor-author .downloadAuthor-value a {
@@ -163,6 +174,79 @@ Text Domain: themedd-child
   display: none;
 }
 
+h1.download-title {
+	color:#2A3A47;
+    font-size:43px;
+}
+
+h1.download-title b:last-child{
+	font-weight:normal;
+}
+
+.page-header .quotescollection-quote-wrapper p, 
+.page-header .quotescollection-quote-wrapper .attribution{
+    color:#000;
+    font-style:italic;
+    font-size:26px;
+    display: inline;
+}
+
+#edd_product_details-3 ul li img{
+    width:25px!important;
+    height:auto!important;
+    margin-right:8px;
+}
+
+#edd_product_details-3 .file-formats  span {
+ color:#2A3A47!important;
+    opacity:0.49!important;
+    font-weight:bold!important;
+    font-size:14px!important;
+}
+#edd_product_details-3 .file-formats b, 
+#edd_product_details-3 .description-prefix,
+#edd_product_details-3 span.downloadDetails-label{
+font-size: 14px!important;
+    color: #2A3A47!important;
+    font-weight: bold!important;
+}
+#edd_product_details-3 span.downloadDetails-label{
+  margin-right: 5px;
+}
+#edd_product_details-3 .description-prefix{
+  display: inline;
+  float: left;
+  margin-right: 5px;
+}
+#edd_product_details-3 table{
+  display:none;
+}
+
+#edd_product_details-3 .vanila-downloadDetails-categories .downloadDetails-value a, 
+#edd_product_details-3 .vanila-downloadDetails-tags .downloadDetails-value a {
+  color: #2A3A47;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.vanila-downloadDetails-tags, .vanila-downloadDetails-categories{
+  list-style: none;
+    margin-bottom:0!important;
+}
+
+#edd_product_details-3 span.edd_price b {
+display: block;
+}
+
+#edd_product_details-3 .edd_download_purchase_form{
+     border-bottom: 1px solid #f6f6f6;
+    display: block;
+    overflow: hidden;
+    padding-bottom: 30px;
+        margin-top: 20px;
+
+}
+
 /* homepage */
 
 .edd_download_title a {
@@ -171,11 +255,11 @@ Text Domain: themedd-child
   font-size: 24px;
 }
 
-.edd_price {
-  color: #101010;
-  font-weight: bold;
-  font-size: 20px;
-  margin-bottom: 10px;
+#edd_product_details-3 span b .edd_price {
+  color: #2A3A47!important;
+  font-size: 31px!important;
+  clear: both;
+  display: block;
 }
 
 .eddDownloadMeta-authorAvatar {
@@ -210,7 +294,7 @@ a.edd-wl-action .glyphicon {
 }
 
 a.edd-wl-action.favorited .glyphicon {
-  color: #D94D4D;
+  color: #D94D4D!important;
 }
 
 a.edd-wl-action {
@@ -225,6 +309,11 @@ a.edd-wl-action {
   padding: 5px 15px;
 
 }
+
+.content-wrapper{
+    margin-bottom:250px;
+}
+
 
 @media only screen and (max-width: 768px) {
   .edd_downloads_list.edd_download_columns_3 {
