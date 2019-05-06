@@ -288,7 +288,7 @@ display: block;
   border-color: #F63939!important;
 }
 
-.edd_purchase_submit_wrapper .edd-add-to-cart.sold-out span{
+#edd_product_details-3 .edd_purchase_submit_wrapper .edd-add-to-cart.sold-out span{
   color: #fff!important;
   font-weight: bold!important;
 }
