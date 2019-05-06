@@ -22,10 +22,12 @@ Text Domain: themedd-child
   color: #2A3A47!important;
   font-size: 23px !important;
   font-weight: normal !important;
+  line-height: initial!important;
 }
 
 #edd_product_details-3 span span {
   font-weight: bold !important;
+  margin-top: 15px;
 }
 
 #edd_product_details-3 ul {
@@ -41,11 +43,11 @@ Text Domain: themedd-child
 #edd_product_details-3 p {
   color: #585858;
   font-size: 15px;
-  margin-bottom:10px!important;
+  margin-bottom:5px!important;
 }
 
 #edd_product_details-3 .edd-wl-button {
-  padding: 6px;
+  padding: 10px;
 }
 
 #edd_product_details-3 .edd-wl-button span {
@@ -113,6 +115,9 @@ Text Domain: themedd-child
   color: #585858;
   text-decoration: underline;
 }
+#themedd_download_author-3{
+  margin-top:60px;
+}
 
 #themedd_download_author-3 .downloadAuthor-author .downloadAuthor-name {
   display: none
@@ -126,7 +131,7 @@ Text Domain: themedd-child
 
 #themedd_download_author-3 .downloadAuthor-avatar {
   float: left;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 #themedd_download_author-3 .downloadAuthor-author .downloadAuthor-value a {
@@ -194,9 +199,14 @@ h1.download-title b:last-child{
     font-size:14px!important;
 }
 #edd_product_details-3 .file-formats b, 
-#edd_product_details-3 .description-prefix{
-  font-size:14px!important;
-  color:#2A3A47;
+#edd_product_details-3 .description-prefix,
+#edd_product_details-3 span.downloadDetails-label{
+font-size: 14px!important;
+    color: #2A3A47!important;
+    font-weight: bold!important;
+}
+#edd_product_details-3 span.downloadDetails-label{
+  margin-right: 5px;
 }
 #edd_product_details-3 .description-prefix{
   display: inline;
@@ -216,6 +226,7 @@ h1.download-title b:last-child{
 
 .vanila-downloadDetails-tags, .vanila-downloadDetails-categories{
   list-style: none;
+    margin-bottom:0!important;
 }
 
 #edd_product_details-3 span.edd_price b {
@@ -269,7 +280,7 @@ a.edd-wl-action .glyphicon {
 }
 
 a.edd-wl-action.favorited .glyphicon {
-  color: #D94D4D;
+  color: #D94D4D!important;
 }
 
 a.edd-wl-action {
@@ -285,6 +296,9 @@ a.edd-wl-action {
 
 }
 
+.content-wrapper{
+    margin-bottom:250px;
+}
 @media only screen and (max-width: 768px) {
   .edd_downloads_list.edd_download_columns_3 {
     grid-template-columns: repeat(2, 1fr);

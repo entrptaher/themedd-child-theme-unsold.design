@@ -96,7 +96,7 @@ function vanila_themedd_edd_content($download_id)
 
     $tags = themedd_edd_download_tags($download_id);
     if ($tags) :
-        echo '<li class="vanila-downloadDetails-tags"><span class="downloadDetails-name downloadDetails">Tags:</span><span class="downloadDetails-value">'.$tags.'</span></li>';
+        echo '<li class="vanila-downloadDetails-tags"><span class="downloadDetails-name downloadDetails-label">Tags:</span><span class="downloadDetails-value">'.$tags.'</span></li>';
     endif;
 }
 

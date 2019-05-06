@@ -128,7 +128,7 @@ $download_options = themedd_edd_download_details_options();
 		</section>
 
 		<?php do_action( 'themedd_edd_sidebar_download_product_details_after' ); ?>
-
+		<span class="vanila-linebreak"></span>
 		<?php
 		/**
 		 * Show the Author Details
