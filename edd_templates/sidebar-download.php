@@ -125,6 +125,8 @@ $download_options = themedd_edd_download_details_options();
 			 * This hook is also added to EDD's Download Details widget.
 			 */
 			do_action( 'themedd_edd_download_info', $post->ID ); ?>
+
+		<span class="vanila-line-divider"></span>
 		</section>
 
 		<?php do_action( 'themedd_edd_sidebar_download_product_details_after' ); ?>
@@ -136,7 +138,6 @@ $download_options = themedd_edd_download_details_options();
 		if ( themedd_edd_show_download_author() ) : ?>
 
 		<section class="widget downloadAuthor">
-		<span class="vanila-line-divider"></span>
 
 			<?php
 			/**
