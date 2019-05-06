@@ -128,7 +128,6 @@ $download_options = themedd_edd_download_details_options();
 		</section>
 
 		<?php do_action( 'themedd_edd_sidebar_download_product_details_after' ); ?>
-		<span class="vanila-linebreak"></span>
 		<?php
 		/**
 		 * Show the Author Details
@@ -136,6 +135,7 @@ $download_options = themedd_edd_download_details_options();
 		if ( themedd_edd_show_download_author() ) : ?>
 
 		<section class="widget downloadAuthor">
+		<span class="vanila-linebreak"></span>
 
 			<?php
 			/**
