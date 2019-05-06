@@ -91,7 +91,7 @@ function vanila_themedd_edd_content($download_id)
 
     $categories = themedd_edd_download_categories($download_id);
     if ($categories) :
-        echo '<li class="vanila-downloadDetails-categories"><span class="downloadDetails-name">'._e('Categories:', 'themedd').'</span><span class="downloadDetails-value">'.$categories.'</span></li>';
+        echo '<li class="vanila-downloadDetails-categories"><span class="downloadDetails-name  categories-label">'._e('Categories:', 'themedd').'</span><span class="downloadDetails-value">'.$categories.'</span></li>';
     endif;
 
     $tags = themedd_edd_download_tags($download_id);
