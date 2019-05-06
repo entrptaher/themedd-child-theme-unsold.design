@@ -386,6 +386,9 @@ a.edd-wl-action {
   #edd_product_details-3 .edd-wl-button {
     padding: 6.5px 13px!important;
 }
+h1.download-title b:last-child{
+  font-weight:bold!important;
+}
 }
 
 /* Quotes Collection */
