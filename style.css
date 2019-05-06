@@ -11,12 +11,22 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: themedd-child
 */
 
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900');
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
 /* product page */
 
 #edd_product_details-3 h3 {
   font-size: 28px;
   color: #2A3A47;
   margin-bottom:20px;
+}
+
+.subtitle{
+  font-weight:300;
 }
 
 #edd_product_details-3 span {
@@ -189,6 +199,7 @@ h1.download-title b:last-child{
     font-style:italic;
     font-size:26px;
     display: inline;
+    font-weight: 300;
 }
 
 #edd_product_details-3 ul li img{
@@ -359,7 +370,7 @@ a.edd-wl-action {
   }
 
 .page-header .quotescollection-quote-wrapper p, .page-header .quotescollection-quote-wrapper .attribution{
-	 font-size:16px
+	 font-size:16px;
 }
 #edd_product_details-3 h3{
     font-size:28px;
