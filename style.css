@@ -283,7 +283,12 @@ display: block;
 
 }
 
+.edd_purchase_submit_wrapper .edd-add-to-cart.sold-out{
+  background:#F63939;
+}
+
 .edd_purchase_submit_wrapper .edd-add-to-cart:hover,
+.edd_purchase_submit_wrapper .edd-add-to-cart:focus
 .edd-free-download:hover {
   background: #23c17d;
   border-color: #23c17d;
