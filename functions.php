@@ -111,3 +111,15 @@ function my_theme_shift_navigation()
 }
 
 add_action('template_redirect', 'my_theme_shift_navigation');
+
+/* Add custom scripts: https://wordpress.stackexchange.com/a/177160 */
+function my_scripts_method()
+{
+    wp_enqueue_script(
+        'custom-script',
+        get_stylesheet_directory_uri() . '/js/custom_script.js',
+        array( 'jquery' )
+    );
+}
+
+add_action('wp_enqueue_scripts', 'my_scripts_method');
