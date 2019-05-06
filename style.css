@@ -284,7 +284,13 @@ display: block;
 }
 
 .edd_purchase_submit_wrapper .edd-add-to-cart.sold-out{
-  background:#F63939;
+  background: #F63939!important;
+  border-color: #F63939!important;
+}
+
+.edd_purchase_submit_wrapper .edd-add-to-cart.sold-out span{
+  color: #fff!important;
+  font-weight: bold!important;
 }
 
 .edd_purchase_submit_wrapper .edd-add-to-cart:hover,
