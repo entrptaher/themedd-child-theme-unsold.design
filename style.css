@@ -16,6 +16,7 @@ Text Domain: themedd-child
 #edd_product_details-3 h3 {
   font-size: 28px;
   color: #2A3A47;
+  margin-bottom:20px;
 }
 
 #edd_product_details-3 span {
@@ -115,8 +116,12 @@ Text Domain: themedd-child
   color: #585858;
   text-decoration: underline;
 }
+#primary-sidebar .widget{
+    padding-bottom:0;
+}
 #themedd_download_author-3{
-  margin-top:60px;
+  margin-top:28px;
+    padding-top:0!important;
 }
 
 #themedd_download_author-3 .downloadAuthor-author .downloadAuthor-name {
@@ -233,6 +238,15 @@ font-size: 14px!important;
 display: block;
 }
 
+#edd_product_details-3 .edd_download_purchase_form{
+     border-bottom: 1px solid #f6f6f6;
+    display: block;
+    overflow: hidden;
+    padding-bottom: 30px;
+        margin-top: 20px;
+
+}
+
 /* homepage */
 
 .edd_download_title a {
@@ -241,7 +255,7 @@ display: block;
   font-size: 24px;
 }
 
-.edd_price {
+#edd_product_details-3 span b .edd_price {
   color: #2A3A47!important;
   font-size: 31px!important;
   clear: both;
@@ -299,6 +313,8 @@ a.edd-wl-action {
 .content-wrapper{
     margin-bottom:250px;
 }
+
+
 @media only screen and (max-width: 768px) {
   .edd_downloads_list.edd_download_columns_3 {
     grid-template-columns: repeat(2, 1fr);
