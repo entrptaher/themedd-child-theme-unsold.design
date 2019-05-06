@@ -273,9 +273,9 @@ display: block;
 }
 
 .edd_purchase_submit_wrapper .edd-add-to-cart,
-.edd-free-download {
-  background: #27D288;
-  border-color: #27D288;
+.edd-free-download, .edd_go_to_checkout {
+  background: #27D288!important;
+  border-color: #27D288!important;
   font-weight: bold;
   display: block;
   float: left;
