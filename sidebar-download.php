@@ -90,7 +90,7 @@ $download_options = themedd_edd_download_details_options();
 
 					if ( $categories ) : ?>
 					<li class="downloadDetails-categories">
-						<span class="downloadDetails-name"><?php _e( 'Categories:', 'themedd' ); ?></span>
+						<span class="downloadDetails-name categories-label"><?php _e( 'Categories:', 'themedd' ); ?></span>
 						<span class="downloadDetails-value"><?php echo $categories; ?></span>
 					</li>
 					<?php endif; ?>
