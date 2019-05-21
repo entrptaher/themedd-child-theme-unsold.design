@@ -6,9 +6,8 @@
  * @since 1.0.0
  */
 if ( ! function_exists( 'vanila_themedd_page_header' ) ) :
-
+	
 	function vanila_themedd_page_header( $args = array() ) {
-
 		/**
 		 * Allow header to be removed via filter
 		 */
@@ -44,7 +43,9 @@ if ( ! function_exists( 'vanila_themedd_page_header' ) ) :
             )
         );
 
-        $args = wp_parse_args( $args, $defaults );
+				$args = wp_parse_args( $args, $defaults );
+
+				$is_free = floatval(get_post_meta(get_the_ID(), 'edd_price')[0]) == 0;
 		?>
 
 		<header class="page-header<?php echo themedd_page_header_classes( $classes ); ?>">
@@ -56,7 +57,11 @@ if ( ! function_exists( 'vanila_themedd_page_header' ) ) :
 						<span class="entry-title-primary"><b>Premium </b><?php echo $args['title']; ?> <b>for Sale</b></span>
 						<span class="subtitle"><?php echo $args['subtitle']; ?></span>
 					<?php elseif ( $args['title'] ) : ?>
-            <b>Premium </b><?php echo $args['title']; ?> <b>for Sale</b>
+						<?php if($is_free) { ?>
+							<b>FREE </b><?php echo $args['title']; ?> <b>for Download</b>
+						<?php } else { ?>
+							<b>Premium </b><?php echo $args['title']; ?> <b>for Sale</b>
+							<?php } ?>
 					<?php endif; ?>
 				</h1>
 				
