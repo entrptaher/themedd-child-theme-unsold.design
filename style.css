@@ -414,10 +414,12 @@ h1.download-title b:last-child{
   content: '\201D';
 }
 
+/* Just the Price $X */
 span.edd_price_content span.edd_price{
  display: block;
 }
 
-.price_text .edd_price{
+/* Price with text, SOLD FOR $X */
+span.edd_price_content .price_text .edd_price{
  display: inline-block;
 }
