@@ -2,6 +2,11 @@
 /**
  * Themedd child theme.
  */
+
+# Enable shortcode inside widget area
+add_filter('widget_text', 'shortcode_unautop');
+add_filter('widget_text', 'do_shortcode');
+
 function themedd_child_styles()
 {
     $parent_style = 'themedd';
@@ -23,14 +28,14 @@ if (! defined('EDD_SLUG')) {
     define('EDD_SLUG', 'd');
 }
 
-add_action(‘admin_init’, ‘allow_contributor_uploads’);
 function allow_contributor_uploads()
 {
-    $contributor = get_role(‘contributor’);
-    $contributor->add_cap(‘upload_files’);
-    $contributor->add_cap(‘edit_published_posts’);
-    $contributor->add_cap(‘edit_others_posts’);
+    $contributor = get_role('contributor');
+    $contributor->add_cap('upload_files');
+    $contributor->add_cap('edit_published_posts');
+    $contributor->add_cap('edit_others_posts');
 }
+add_action('admin_init', 'allow_contributor_uploads');
 
 /**
  * Remove standard wish list links
@@ -79,7 +84,14 @@ function vanila_themedd_edd_title($download_id)
 
 function vanila_themedd_edd_content($download_id)
 {
-    
+    # Display the message if the product is sold out
+    # We just check if the shortcode returns the specific words
+    # Simple and quick hack
+    $sold_out = strpos(do_shortcode('[remaining_purchases]'), 'Sold Out') !== false;
+    if ($sold_out) {
+        echo '<p class="sold-out-upsell"><b>This item is sold out, you can order custom themes bla bla</b></p>';
+    }
+
     # big highlighted text box
     echo '<ul class="details_highlighted"><li>✨ Premium Logos <b>Sold Once</b></li><li>🤝 Fair <b>Money Back</b> Gurantee</li><li><b>👌 Manually approved</b> by our staff</li></ul>';
     
