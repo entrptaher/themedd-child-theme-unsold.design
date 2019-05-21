@@ -119,7 +119,7 @@ function vanila_themedd_edd_content($download_id)
     # big highlighted text box
     echo '<ul class="details_highlighted"><li>✨ Premium Logos <b>Sold Once</b></li><li>🤝 Fair <b>Money Back</b> Gurantee</li><li><b>👌 Manually approved</b> by our staff</li></ul>';
     
-    $files_included = get_field('files_included');
+    $files_included = get_post_meta($download_id, 'file_formats', true);
 
     echo '<p class="file-formats"><b>Files included:</b> <span>'. ($files_included ? implode(", ", $files_included) : "AI, PNG, SVG, PDF") .'</span></p>';
 
