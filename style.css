@@ -413,3 +413,7 @@ h1.download-title b:last-child{
 .quotescollection-quote-wrapper p:after {
   content: '\201D';
 }
+
+#edd_price_content span.edd_price{
+ display: block;
+}
