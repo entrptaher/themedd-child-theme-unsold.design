@@ -4,13 +4,10 @@
  *
  * @since 1.0.0
  */
-
 // Get the author options.
 $author_options = themedd_edd_download_author_options();
-
 // Get the download options.
 $download_options = themedd_edd_download_details_options();
-
 ?>
 <div id="secondary" class="<?php echo themedd_secondary_classes(); ?>">
 
@@ -69,9 +66,7 @@ $download_options = themedd_edd_download_details_options();
 				 * Version.
 				 */
 				if ( true === $download_options['version'] ) :
-
 					$version = themedd_edd_download_version( $post->ID );
-
 					if ( $version ) : ?>
 					<li class="downloadDetails-version">
 						<span class="downloadDetails-name"><?php _e( 'Version:', 'themedd' ); ?></span>
@@ -85,9 +80,7 @@ $download_options = themedd_edd_download_details_options();
 				 * Download categories.
 				 */
 				if ( true === $download_options['categories'] ) :
-
 					$categories = themedd_edd_download_categories( $post->ID );
-
 					if ( $categories ) : ?>
 					<li class="downloadDetails-categories">
 						<span class="downloadDetails-name categories-label"><?php _e( 'Categories:', 'themedd' ); ?></span>
@@ -101,9 +94,7 @@ $download_options = themedd_edd_download_details_options();
 				 * Download tags.
 				 */
 				if ( true === $download_options['tags'] ) :
-
 					$tags = themedd_edd_download_tags( $post->ID );
-
 					if ( $tags ) : ?>
 					<li class="downloadDetails-tags">
 						<span class="downloadDetails-name"><?php _e( 'Tags:', 'themedd' ); ?></span>
@@ -143,7 +134,6 @@ $download_options = themedd_edd_download_details_options();
 			 */
 			$user       = new WP_User( $post->post_author );
 			$vendor_url = themedd_is_edd_fes_active() ? (new Themedd_EDD_Frontend_Submissions)->author_url( get_the_author_meta( 'ID', $post->post_author ) ) : '';
-
 			if ( true === $author_options['avatar'] ) : ?>
 
 				<div class="downloadAuthor-avatar">
@@ -210,7 +200,6 @@ $download_options = themedd_edd_download_details_options();
 			 * Author website.
 			 */
 			$website = get_the_author_meta( 'user_url', $post->post_author );
-
 			if ( ! empty( $website ) && true === $author_options['website'] ) : ?>
 
 			<li class="downloadAuthor-website">

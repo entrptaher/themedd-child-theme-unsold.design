@@ -2,6 +2,11 @@
 /**
  * Themedd child theme.
  */
+
+# Enable shortcode inside widget area
+add_filter('widget_text', 'shortcode_unautop');
+add_filter('widget_text', 'do_shortcode');
+
 function themedd_child_styles()
 {
     $parent_style = 'themedd';
@@ -23,14 +28,14 @@ if (! defined('EDD_SLUG')) {
     define('EDD_SLUG', 'd');
 }
 
-add_action(‘admin_init’, ‘allow_contributor_uploads’);
 function allow_contributor_uploads()
 {
-    $contributor = get_role(‘contributor’);
-    $contributor->add_cap(‘upload_files’);
-    $contributor->add_cap(‘edit_published_posts’);
-    $contributor->add_cap(‘edit_others_posts’);
+    $contributor = get_role('contributor');
+    $contributor->add_cap('upload_files');
+    $contributor->add_cap('edit_published_posts');
+    $contributor->add_cap('edit_others_posts');
 }
+add_action('admin_init', 'allow_contributor_uploads');
 
 /**
  * Remove standard wish list links
@@ -59,31 +64,64 @@ function vanila_themedd_edd_price($download_id)
     if (false === themedd_edd_price_enhancements()) {
         return;
     }
+    $is_sold_out = is_sold_out();
     
-    if (edd_is_free_download($download_id)) {
-        $price = '<span id="edd_price_' . get_the_ID() . '" class="edd_price">This logo is 100% unique and can be yours for <b>' . __('Free', 'themedd') . '</b></span>';
-    } elseif (edd_has_variable_prices($download_id)) {
-        $price = '<span id="edd_price_' . get_the_ID() . '" class="edd_price">This logo is 100% unique and can be yours for <b>' . __('From', 'themedd') . '&nbsp;' . edd_currency_filter(edd_format_amount(edd_get_lowest_price_option($download_id))) . '</b></span>';
+    $prefix = '<span class="edd_price_content">';
+    if ($is_sold_out) {
+        $content = 'This logo is <b>sold</b> but you can order a custom one.';
     } else {
-        $price = '<span class="edd_price">This logo is 100% unique and can be yours for  <b>'.edd_price($download_id, false).'</b></span>';
+        $content = 'This logo is 100% unique and can be yours for ';
     }
+    $suffix = '</span>';
+    
 
+    if (edd_is_free_download($download_id)) {
+        if ($is_sold_out) {
+            $price = $prefix.$content.$suffix;
+        } else {
+            $price =  $prefix.$content . __('Free', 'themedd') . $suffix;
+        }
+    } else {
+        if ($is_sold_out) {
+            $price = $prefix.$content.'<div class="price_text">Sold for ' .edd_price($download_id, false) .'</div>'.$suffix;
+        } else {
+            $price = $prefix.$content.edd_price($download_id, false) .$suffix;
+        }
+    }
+    
     echo $price;
 }
 
 function vanila_themedd_edd_title($download_id)
 {
+    $is_free = floatval(get_post_meta(get_the_ID(), 'edd_price')[0]) == 0;
+
     # Hard coded title
-    the_title('<h3 class="vanila-downloadDetails-title">Buy <b>', '</b></h3>');
+    if (is_sold_out()) {
+        the_title('<h3 class="vanila-downloadDetails-title"><b>', ' is SOLD</b></h3>');
+    } else {
+        if($is_free){
+            the_title('<h3 class="vanila-downloadDetails-title">Download FREE <b>', '</b></h3>');    
+        }else{
+            the_title('<h3 class="vanila-downloadDetails-title">Buy <b>', '</b></h3>');
+        }
+    }
 }
+
+function is_sold_out()
+{
+    return strpos(do_shortcode('[remaining_purchases]'), 'Sold Out') !== false;
+}
+
 
 function vanila_themedd_edd_content($download_id)
 {
-    
     # big highlighted text box
     echo '<ul class="details_highlighted"><li>✨ Premium Logos <b>Sold Once</b></li><li>🤝 Fair <b>Money Back</b> Gurantee</li><li><b>👌 Manually approved</b> by our staff</li></ul>';
     
-    echo '<p class="file-formats"><b>Files included:</b> <span>AI, PNG, PDF, SVG</span></p>';
+    $files_included = get_field('files_included');
+
+    echo '<p class="file-formats"><b>Files included:</b> <span>'. ($files_included ? implode(", ", $files_included) : "AI, PNG, SVG, PDF") .'</span></p>';
 
     echo '<b class="description-prefix">Description:</b>';
 
