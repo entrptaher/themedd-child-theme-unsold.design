@@ -417,3 +417,7 @@ h1.download-title b:last-child{
 span.edd_price_content span.edd_price{
  display: block;
 }
+
+.price_text .edd_price{
+ display: inline-block;
+}
