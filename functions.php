@@ -65,37 +65,46 @@ function vanila_themedd_edd_price($download_id)
         return;
     }
     
-    if (edd_is_free_download($download_id)) {
-        $price = '<span id="edd_price_' . get_the_ID() . '" class="edd_price">This logo is 100% unique and can be yours for <b>' . __('Free', 'themedd') . '</b></span>';
-    } elseif (edd_has_variable_prices($download_id)) {
-        $price = '<span id="edd_price_' . get_the_ID() . '" class="edd_price">This logo is 100% unique and can be yours for <b>' . __('From', 'themedd') . '&nbsp;' . edd_currency_filter(edd_format_amount(edd_get_lowest_price_option($download_id))) . '</b></span>';
-    } else {
-        $price = '<span class="edd_price">This logo is 100% unique and can be yours for  <b>'.edd_price($download_id, false).'</b></span>';
-    }
+    $prefix = '<span id="edd_price_' . get_the_ID() . '" class="edd_price">This logo is 100% unique and can be yours for <b>';
+    $suffix = '</b></span>';
 
+    if (edd_is_free_download($download_id)) {
+        if (is_sold_out()) {
+            $price = '<span class="edd_price sold-out-upsell">This logo is sold but you can order a custom one.</span>';
+        } else {
+            $price =  $prefix . __('Free', 'themedd') . $suffix;
+        }
+    } else {
+        $price = $prefix. (is_sold_out() ? 'Sold for ' : '') .edd_price($download_id, false) .$suffix;
+    }
+    
     echo $price;
 }
 
 function vanila_themedd_edd_title($download_id)
 {
     # Hard coded title
-    the_title('<h3 class="vanila-downloadDetails-title">Buy <b>', '</b></h3>');
+    if(is_sold_out()){
+        the_title('<h3 class="vanila-downloadDetails-title"><b>', '</b> is SOLD</h3>');    
+    }else{
+        the_title('<h3 class="vanila-downloadDetails-title">Buy <b>', '</b></h3>');
+    }
 }
+
+function is_sold_out()
+{
+    return strpos(do_shortcode('[remaining_purchases]'), 'Sold Out') !== false;
+}
+
 
 function vanila_themedd_edd_content($download_id)
 {
-    # Display the message if the product is sold out
-    # We just check if the shortcode returns the specific words
-    # Simple and quick hack
-    $sold_out = strpos(do_shortcode('[remaining_purchases]'), 'Sold Out') !== false;
-    if ($sold_out) {
-        echo '<p class="sold-out-upsell"><b>This item is sold out, you can order custom themes bla bla</b></p>';
-    }
-
     # big highlighted text box
     echo '<ul class="details_highlighted"><li>✨ Premium Logos <b>Sold Once</b></li><li>🤝 Fair <b>Money Back</b> Gurantee</li><li><b>👌 Manually approved</b> by our staff</li></ul>';
     
-    echo '<p class="file-formats"><b>Files included:</b> <span>AI, PNG, PDF, SVG</span></p>';
+    $files_included = get_field('files_included');
+
+    echo '<p class="file-formats"><b>Files included:</b> <span>'. ($files_included ? implode(", ", $files_included) : "AI, PNG, SVG, PDF") .'</span></p>';
 
     echo '<b class="description-prefix">Description:</b>';
 
