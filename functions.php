@@ -64,18 +64,29 @@ function vanila_themedd_edd_price($download_id)
     if (false === themedd_edd_price_enhancements()) {
         return;
     }
+    $is_sold_out = is_sold_out();
     
-    $prefix = '<span id="edd_price_' . get_the_ID() . '" class="edd_price">This logo is 100% unique and can be yours for <b>';
-    $suffix = '</b></span>';
+    $prefix = '<span class="edd_price_content">';
+    if ($is_sold_out) {
+        $content = 'This logo is <b>sold</b> but you can order a custom one.';
+    } else {
+        $content = 'This logo is 100% unique and can be yours for ';
+    }
+    $suffix = '</span>';
+    
 
     if (edd_is_free_download($download_id)) {
-        if (is_sold_out()) {
-            $price = '<span class="edd_price sold-out-upsell">This logo is sold but you can order a custom one.</span>';
+        if ($is_sold_out) {
+            $price = $prefix.$content.$suffix;
         } else {
-            $price =  $prefix . __('Free', 'themedd') . $suffix;
+            $price =  $prefix.$content . __('Free', 'themedd') . $suffix;
         }
     } else {
-        $price = $prefix. (is_sold_out() ? 'Sold for ' : '') .edd_price($download_id, false) .$suffix;
+        if ($is_sold_out) {
+            $price = $prefix.$content.'<div class="price_text">Sold for ' .edd_price($download_id, false) .'</div>'.$suffix;
+        } else {
+            $price = $prefix.$content.edd_price($download_id, false) .$suffix;
+        }
     }
     
     echo $price;
@@ -84,9 +95,9 @@ function vanila_themedd_edd_price($download_id)
 function vanila_themedd_edd_title($download_id)
 {
     # Hard coded title
-    if(is_sold_out()){
-        the_title('<h3 class="vanila-downloadDetails-title"><b>', '</b> is SOLD</h3>');    
-    }else{
+    if (is_sold_out()) {
+        the_title('<h3 class="vanila-downloadDetails-title"><b>', ' is SOLD</b></h3>');
+    } else {
         the_title('<h3 class="vanila-downloadDetails-title">Buy <b>', '</b></h3>');
     }
 }
