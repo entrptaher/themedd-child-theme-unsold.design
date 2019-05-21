@@ -94,11 +94,17 @@ function vanila_themedd_edd_price($download_id)
 
 function vanila_themedd_edd_title($download_id)
 {
+    $is_free = floatval(get_post_meta(get_the_ID(), 'edd_price')[0]) == 0;
+
     # Hard coded title
     if (is_sold_out()) {
         the_title('<h3 class="vanila-downloadDetails-title"><b>', ' is SOLD</b></h3>');
     } else {
-        the_title('<h3 class="vanila-downloadDetails-title">Buy <b>', '</b></h3>');
+        if($is_free){
+            the_title('<h3 class="vanila-downloadDetails-title">Download FREE <b>', '</b></h3>');    
+        }else{
+            the_title('<h3 class="vanila-downloadDetails-title">Buy <b>', '</b></h3>');
+        }
     }
 }
 

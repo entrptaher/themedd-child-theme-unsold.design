@@ -53,14 +53,11 @@ if ( ! function_exists( 'vanila_themedd_page_header' ) ) :
 			<div class="wrapper">
 				<?php do_action( 'themedd_page_header_wrapper_start' ); ?>
 				<h1 class="<?php echo get_post_type(); ?>-title">
-					<?php if ( $args['subtitle'] ) : ?>
-						<span class="entry-title-primary"><b>Premium </b><?php echo $args['title']; ?> <b>for Sale</b></span>
-						<span class="subtitle"><?php echo $args['subtitle']; ?></span>
-					<?php elseif ( $args['title'] ) : ?>
+					<?php if ( $args['title'] ) : ?>
 						<?php if($is_free) { ?>
 							<b>FREE </b><?php echo $args['title']; ?> <b>for Download</b>
 						<?php } else { ?>
-							<b>Premium </b><?php echo $args['title']; ?> <b>for Sale</b>
+							<b>Premium </b><?php echo $args['title']; ?> <?php if(is_sold_out()) { ?> <b>is SOLD</b> <?php } else { ?> <b>for Sale</b> <?php } ?>
 							<?php } ?>
 					<?php endif; ?>
 				</h1>
