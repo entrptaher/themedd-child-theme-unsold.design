@@ -413,3 +413,13 @@ h1.download-title b:last-child{
 .quotescollection-quote-wrapper p:after {
   content: '\201D';
 }
+
+/* Just the Price $X */
+span.edd_price_content span.edd_price{
+ display: block;
+}
+
+/* Price with text, SOLD FOR $X */
+span.edd_price_content .price_text .edd_price{
+ display: inline-block;
+}
