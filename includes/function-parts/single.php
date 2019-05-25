@@ -1,39 +1,77 @@
 <?php
 
-function themedd_child_styles()
-{
-    $parent_style = 'themedd';
-
-    wp_enqueue_style($parent_style, get_template_directory_uri() . '/style.css');
-    wp_enqueue_style(
-        'themedd-child',
-        get_stylesheet_directory_uri() . '/style.css',
-        array( $parent_style ),
-        wp_get_theme()->get('Version')
-    );
-}
-
-function allow_contributor_uploads()
-{
-    $contributor = get_role('contributor');
-    $contributor->add_cap('upload_files');
-    $contributor->add_cap('edit_published_posts');
-    $contributor->add_cap('edit_others_posts');
-}
-
 /**
- * Remove standard wish list links
- * @return [type] [description]
- * @uses  edd_favorites_load_link()
+ * Display the post header
+ *
+ * @since 1.0.0
  */
-function vanila_edd_favorites_link()
-{
-    // remove standard add to wish list link
-    remove_action('edd_purchase_link_top', 'edd_favorites_load_link');
+if ( ! function_exists( 'vanila_themedd_page_header' ) ) :
+	
+	function vanila_themedd_page_header( $args = array() ) {
+		/**
+		 * Allow header to be removed via filter
+		 */
+		if ( ! apply_filters( 'themedd_page_header', true ) ) {
+			return;
+		}
 
-    // add our new link
-    add_action('edd_purchase_link_end', 'edd_favorites_load_link');
-}
+		do_action( 'themedd_page_header_before' );
+
+		if ( is_404() ) {
+			$title = esc_html__( 'Oops! That page can&rsquo;t be found.', 'themedd' );
+		} else {
+			$title = ! empty( $args['title'] ) ? $args['title'] : get_the_title();
+		}
+
+		// Process any classes passed in.
+		if ( ! empty( $args['classes'] ) ) {
+			if ( is_array( $args['classes'] ) ) {
+				// array of classes
+				$classes = $args['classes'];
+			} else {
+				// must be string, explode it into an array
+				$classes = explode( ' ', $args['classes'] );
+			}
+		} else {
+			$classes = array();
+		}
+
+        $defaults = apply_filters( 'themedd_header_defaults',
+            array(
+                'subtitle' => ! empty( $args['subtitle'] ) ? $args['subtitle'] : '',
+                'title'    => ! empty( $args['title'] ) ? $args['title'] : get_the_title(),
+            )
+        );
+
+				$args = wp_parse_args( $args, $defaults );
+		?>
+
+		<header class="page-header<?php echo themedd_page_header_classes( $classes ); ?>">
+			<?php do_action( 'themedd_page_header_start' ); ?>
+			<div class="wrapper">
+				<?php do_action( 'themedd_page_header_wrapper_start' ); ?>
+				<h1 class="<?php echo get_post_type(); ?>-title">
+					<?php if ( $args['title'] ) : ?>
+						<?php if(is_free()) { ?>
+							<b>FREE </b><?php echo $args['title']; ?> <b>for Download</b>
+						<?php } else { ?>
+							<b>Premium </b><?php echo $args['title']; ?> <?php if(is_sold_out()) { ?> <b>is SOLD</b> <?php } else { ?> <b>for Sale</b> <?php } ?>
+							<?php } ?>
+					<?php endif; ?>
+				</h1>
+				
+        <?php quotescollection_quote( array( 'ajax_refresh' => false, 'char_limit' => 300 ) ); ?>
+
+				<?php do_action( 'themedd_page_header_wrapper_end' ); ?>
+			</div>
+			<?php do_action( 'themedd_page_header_end' ); ?>
+		</header>
+
+	<?php
+
+	}
+
+endif;
 
 /**
  * Download price
@@ -92,29 +130,6 @@ function vanila_themedd_edd_title($download_id)
     }
 }
 
-function is_free()
-{
-    return floatval(get_post_meta(get_the_ID(), 'edd_price', true)) == 0;
-}
-
-function is_service()
-{
-    return get_post_meta(get_the_ID(), '_edd_das_enabled', true)  == '1';
-}
-
-function is_sold_out()
-{
-    $limit = floatval(get_post_meta(get_the_ID(), '_edd_purchase_limit', true));
-    $sales = floatval(get_post_meta(get_the_ID(), '_edd_download_sales', true));
-    if ($limit == 0) {
-        return false;
-    }
-    if ($sales >= $limit) {
-        return true;
-    }
-}
-
-
 function vanila_themedd_edd_content($download_id)
 {
     # big highlighted text box
@@ -139,7 +154,7 @@ function vanila_themedd_edd_content($download_id)
     endif;
 }
 
-function my_theme_shift_navigation()
+function price_and_content_order()
 {
     remove_action('themedd_edd_download_info', 'themedd_edd_price');
     remove_action('themedd_edd_download_info', 'themedd_edd_purchase_link');
@@ -147,15 +162,4 @@ function my_theme_shift_navigation()
     add_action('themedd_edd_download_info', 'vanila_themedd_edd_price', 10, 1);
     add_action('themedd_edd_download_info', 'vanila_themedd_edd_content', 10, 1);
     add_action('themedd_edd_download_info', 'themedd_edd_purchase_link', 10, 1);
-}
-
-
-/* Add custom scripts: https://wordpress.stackexchange.com/a/177160 */
-function my_scripts_method()
-{
-    wp_enqueue_script(
-        'custom-script',
-        get_stylesheet_directory_uri() . '/js/custom_script.js',
-        array( 'jquery' )
-    );
 }
