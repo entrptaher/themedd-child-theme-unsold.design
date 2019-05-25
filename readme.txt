@@ -1,1 +1,0 @@
-PHP formatted with [phpfmt](https://github.com/kokororin/vscode-phpfmt) VSCode Extension.
