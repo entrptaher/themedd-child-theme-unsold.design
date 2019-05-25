@@ -28,6 +28,7 @@ add_action('wp_enqueue_scripts', 'my_scripts_method');
 
 # Various small parts with different functions
 include( dirname( __FILE__ ) . '/includes/function-parts/common.php' );
+include( dirname( __FILE__ ) . '/includes/function-parts/common/purchase-link.php' );
 include( dirname( __FILE__ ) . '/includes/function-parts/admin.php' );
 include( dirname( __FILE__ ) . '/includes/function-parts/homepage.php' );
 include( dirname( __FILE__ ) . '/includes/function-parts/single.php' );
