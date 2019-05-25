@@ -3,7 +3,8 @@
  * The template for displaying all single downloads
  */
 get_header();
-include( dirname( __FILE__ ) . '/includes/template-tags.php' );
+
+# Our custom header with title and random quote
 vanila_themedd_page_header();
 ?>
 
